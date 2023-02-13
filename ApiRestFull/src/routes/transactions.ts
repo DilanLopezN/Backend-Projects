@@ -32,7 +32,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
 
       .first()
 
-    return { transaction }
+    return transaction
   })
 
   app.get('/summary', { preHandler: [checkSessionIdExist] }, async request => {
@@ -43,7 +43,7 @@ export async function transactionsRoutes(app: FastifyInstance) {
       .sum('amount', { as: 'amount' })
       .first()
 
-    return { summary }
+    return summary
   })
   app.post('/', async (request, reply) => {
     const createTransactionBodySchema = z.object({
