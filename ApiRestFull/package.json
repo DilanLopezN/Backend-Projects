@@ -1,14 +1,22 @@
 {
   "name": "apirestfull",
-  "type": "module",
+  "type": "commonjs",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/server.ts",
     "start": "node --watch server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "tsx": "^3.12.3",
+    "typescript": "^4.9.5"
+  }
 }
