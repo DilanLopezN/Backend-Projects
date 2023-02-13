@@ -1,4 +1,4 @@
 node_modules
 node modules
-tmp/*
-/tmp/app.db
+db/*
+/db/app.db

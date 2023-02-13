@@ -1,4 +1,3 @@
-import { table } from 'console'
 import fastify from 'fastify'
 import { knex } from './database'
 const app = fastify()

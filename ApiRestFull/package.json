@@ -5,6 +5,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "knex": "node --loader tsx ./node_modules/knex/bin/cli.js",
     "dev": "tsx watch src/server.ts",
     "start": "node --watch server.js"
   },
