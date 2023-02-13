@@ -1,4 +1,4 @@
 node_modules
 node modules
-db/*
-/db/app.db
+ApiRestFull/db/*
+
