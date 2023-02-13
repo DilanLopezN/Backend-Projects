@@ -7,7 +7,8 @@
   "scripts": {
     "knex": "node --loader tsx ./node_modules/knex/bin/cli.js",
     "dev": "tsx watch src/server.ts",
-    "start": "node --watch server.js"
+    "start": "node --watch server.js",
+    "build": "tsup src"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "@types/node": "^18.13.0",
     "@types/supertest": "^2.0.12",
     "supertest": "^6.3.3",
+    "tsup": "^6.6.2",
     "tsx": "^3.12.3",
     "typescript": "^4.9.5",
     "vitest": "^0.28.5"

@@ -4,4 +4,7 @@ ApiRestFull/db/*
 .env
 .env.test
 ApiRestFull/.env
-
+ApiRestFull/dist
+/dist
+dist
+db/*.db
