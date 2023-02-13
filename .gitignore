@@ -2,5 +2,6 @@ node_modules
 node modules
 ApiRestFull/db/*
 .env
+.env.test
 ApiRestFull/.env
 
