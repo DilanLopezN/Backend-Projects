@@ -1,4 +1,5 @@
-node_modules
+/*node_modules
+*/node_modules
 node modules
 ApiRestFull/db/*
 .env
@@ -8,3 +9,4 @@ ApiRestFull/dist
 /dist
 dist
 db/*.db
+solidapi/node_modules

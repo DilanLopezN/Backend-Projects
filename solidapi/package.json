@@ -1,0 +1,28 @@
+{
+  "name": "solidapi",
+  "version": "1.0.0",
+  "description": "GymPass API",
+  "main": "index.js",
+  "scripts": {
+    "eslint:fix": "eslint --ext .js,.ts src --fix",
+    "start:dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "build": "tsup src --out-dir build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "2.1.0",
+    "@types/node": "^20.5.9",
+    "tsup": "^7.2.0",
+    "tsx": "^3.12.8",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "dotenv": "16.3.1",
+    "fastify": "^4.22.2",
+    "zod": "3.22.2"
+  }
+}
