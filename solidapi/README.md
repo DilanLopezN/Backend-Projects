@@ -3,7 +3,7 @@
 GymPass API
 
 #RFS (Requisitos funcionais)
-- [] Deve ser Possivel se cadastrar;
+- [X] Deve ser Possivel se cadastrar;
 - [] Deve ser possivel se autenticar;
 - [] Deve ser possivel obter perfil de usuário logado;
 - [] Deve ser possivel obter números de check-ins realizado pelo usuário;
@@ -15,7 +15,7 @@ GymPass API
 - [] Deve ser possivel cadastrar uma academia;
 - [] Deve ser possivel
 #RNA (Regras de negócio)
-- [] Usuário não pode se cadastrar com o mesmo e-mail;
+- [X] Usuário não pode se cadastrar com o mesmo e-mail;
 - [] Usuário não pode fazer dois check-ins no mesmo dia;
 - [] Usuário não pode fazer check-in se estiver mais de 100m da academia;
 - [] O Check-in só pode ser validado até 20 minutos após criado;
@@ -23,7 +23,7 @@ GymPass API
 - [] Ocademia só pode ser cadastrado por administradores;
 
 #RFNs(Requisitos não-funcionais)
-- Senha do usuário precisa estar criptografada;
-- Dados precisam estar persistidos em banco Postgress;
-- Todas listas de dados precisam estár páginadas em até 20 items;
-- O usuário deve ser identificado por JWT(json web token);
+- [X] Senha do usuário precisa estar criptografada;
+- [] Dados precisam estar persistidos em banco Postgress;
+- [] Todas listas de dados precisam estár páginadas em até 20 items;
+- [] O usuário deve ser identificado por JWT(json web token);

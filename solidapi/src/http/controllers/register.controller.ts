@@ -1,6 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify"
 import { z } from "zod"
-import { RegisterService } from "../../services/register.service"
+import { RegisterService } from "../../services/register/register.service"
 import { PrismaUsersRepository } from "@/repositories/prisma/prisma.users.repository"
 
 
