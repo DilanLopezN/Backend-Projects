@@ -10,3 +10,5 @@ ApiRestFull/dist
 dist
 db/*.db
 solidapi/node_modules
+/*coverage
+solidapi/coverage
