@@ -1,17 +1,21 @@
-import { describe, it, expect} from 'vitest'
+import { describe, it, expect, beforeEach} from 'vitest'
 import { RegisterService } from './register.service'
 import { compare } from 'bcryptjs'
 import { InMemoryUserRepository } from '@/repositories/in-memory/in-memory.users.repository'
 import { UserAlreadyExistsError } from '../errors/user.already.exists'
 
-describe('Register Service', () => {
 
+let userReposititory: InMemoryUserRepository
+let sut: RegisterService
+describe('Register Service', () => {
+beforeEach(() => {
+  userReposititory = new InMemoryUserRepository()
+  sut = new RegisterService(userReposititory)
+})
   it('should be able to register', async () => {
 
-    const inMemoryRepository = new InMemoryUserRepository()
-    const registerService = new RegisterService(inMemoryRepository)
-
-   const {user} = await registerService.handler({
+    
+   const {user} = await sut.handler({
       name: 'John Doe',
       email: 'john@gmail.com',
       password: '123456'
@@ -25,10 +29,7 @@ describe('Register Service', () => {
 
   it('should hash user password upon registration', async () => {
 
-    const inMemoryRepository = new InMemoryUserRepository()
-    const registerService = new RegisterService(inMemoryRepository)
-
-   const {user} = await registerService.handler({
+   const {user} = await sut.handler({
       name: 'John Doe',
       email: 'john@gmail.com',
       password: '123456'
@@ -41,20 +42,18 @@ describe('Register Service', () => {
 
   it('should not be able create an user with same email', async () => {
 
-    const inMemoryRepository = new InMemoryUserRepository()
-    const registerService = new RegisterService(inMemoryRepository)
-
+  
     const email = 'john@gmail.com'
 
 
-    await registerService.handler({
+    await sut.handler({
       name: 'John Doe',
       email,
       password: '123456'
     })
 
    
-    expect(async () =>  await registerService.handler({
+    expect(async () =>  await sut.handler({
       name: 'John Doe',
       email,
       password: '123456'

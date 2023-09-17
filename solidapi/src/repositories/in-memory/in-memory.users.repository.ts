@@ -2,7 +2,11 @@ import { Prisma, User } from "@prisma/client";
 import { UsersRepository } from "../user.repository";
 
 export class InMemoryUserRepository implements UsersRepository {
+
   public database: User[] = []
+
+
+
 
   async create(data: Prisma.UserCreateInput) {
     const user = {
@@ -19,6 +23,18 @@ export class InMemoryUserRepository implements UsersRepository {
   }
   async findByEmail(email: string) {
     const user = this.database.find((user => user.email === email))
+
+    if(!user) {
+      return null
+    }
+
+    return user
+  
+  }
+
+
+  async findById(userId: string) {
+    const user = this.database.find((user => user.id === userId))
 
     if(!user) {
       return null
