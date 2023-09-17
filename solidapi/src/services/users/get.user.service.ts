@@ -3,18 +3,18 @@ import { User } from "@prisma/client";
 import { ResourceNotFoundError } from "../errors/resource.not.found";
 
 
-interface AuthenticateServiceRequest {
+interface GetUserProfileRequest {
   userId: string;
 }
 
-interface AuthenticateServiceResponse {
+interface GetUserProfileResponse {
   user: User
 }
 
 export class GetUserProfileService {
   constructor(private userRepository: UsersRepository) {}
 
-  async handler({userId}: AuthenticateServiceRequest ): Promise<AuthenticateServiceResponse> {
+  async handler({userId}: GetUserProfileRequest ): Promise<GetUserProfileResponse> {
    const user = await this.userRepository.findById(userId)
 
    if(!user) {

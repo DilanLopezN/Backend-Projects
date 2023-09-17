@@ -4,8 +4,8 @@ GymPass API
 
 #RFS (Requisitos funcionais)
 - [X] Deve ser Possivel se cadastrar;
-- [] Deve ser possivel se autenticar;
-- [] Deve ser possivel obter perfil de usuário logado;
+- [X] Deve ser possivel se autenticar;
+- [X] Deve ser possivel obter perfil de usuário logado;
 - [] Deve ser possivel obter números de check-ins realizado pelo usuário;
 - [] Deve ser possivel o usuário obter histórico de check-ins;
 - [] Deve ser possivel o usuário buscar academias próximas;
