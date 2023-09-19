@@ -6,6 +6,16 @@ export class InMemoryCheckinsRepository implements CheckInsRepository {
 
   public database: Checkin[] = []
 
+  async findByUserIdOnDate(userId: string, date: Date){
+    const checkinOnSameDate = this.database.find(checkin => checkin.user_id === userId)
+
+    if(!checkinOnSameDate){
+      return null;
+    }
+
+    return checkinOnSameDate;
+}
+
   async create(data: Prisma.CheckinUncheckedCreateInput) {
     const checkin = {
      id: randomUUID(),
@@ -19,5 +29,6 @@ export class InMemoryCheckinsRepository implements CheckInsRepository {
 
     return checkin
   }
+
 
 }
