@@ -15,12 +15,12 @@ describe('Checkin Service', () => {
 
 
      inMemoryGymRepository.database.push({
-      id: '1',
+      id: 'gym-id-01',
       title: 'Js Gym',
       description: 'To learn and growth' ,
       phone: '944502819',
-      latitude: new Decimal(0),
-      longitude:  new Decimal(0),
+      latitude: new Decimal(-23.7142825),
+      longitude:  new Decimal(-46.5993207),
     })
 
      vi.useFakeTimers()
@@ -37,8 +37,8 @@ describe('Checkin Service', () => {
     const {checkin} = await sut.handler({
       gymId: 'gym-id-01',
       userId: 'user-id-01',
-      userLatitude: 0,
-      userLongitude: 0
+      userLatitude: -23.7141253,
+      userLongitude: -46.5992241
     })
     
       expect(checkin.id).toEqual(expect.any(String))
@@ -49,15 +49,15 @@ describe('Checkin Service', () => {
     await sut.handler({
       gymId: 'gym-id-01',
       userId: 'user-id-01',
-      userLatitude: 0,
-      userLongitude: 0
+      userLatitude: -23.7141253,
+      userLongitude: -46.5992241
     })
     
      expect(async () =>  await sut.handler({
       gymId: 'gym-id-01',
       userId: 'user-id-01',
-      userLatitude: 0,
-      userLongitude: 0
+      userLatitude: -23.7141253,
+      userLongitude: -46.5992241
     })).rejects.toBeInstanceOf(Error)
 
 
@@ -68,8 +68,8 @@ describe('Checkin Service', () => {
     await sut.handler({
       gymId: 'gym-id-01',
       userId: 'user-id-01',
-      userLatitude: 0,
-      userLongitude: 0
+      userLatitude: -23.7141253,
+      userLongitude: -46.5992241
     })
     
 
@@ -78,8 +78,8 @@ describe('Checkin Service', () => {
     const { checkin} = await sut.handler({
       gymId: 'gym-id-01',
       userId: 'user-id-01',
-      userLatitude: 0,
-      userLongitude: 0
+      userLatitude: -23.7141253,
+      userLongitude: -46.5992241
     })
     
     
