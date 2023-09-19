@@ -87,6 +87,28 @@ describe('Checkin Service', () => {
 
    })
 
+   it('not should be able to check-in in distance gym', async () => {
+    vi.setSystemTime(new Date(2023,0,20,8,0,0))
+
+    inMemoryGymRepository.database.push({
+      id: '2',
+      title: 'Js Gym',
+      description: 'To learn and growth' ,
+      phone: '944502819',
+      latitude: new Decimal(23.7106253),
+      longitude:  new Decimal(46.6126251),
+    })
+
+
+    
+    expect(async () => await sut.handler({
+      gymId: '2',
+      userId: 'user-id-01',
+      userLatitude: 23.7269321,
+      userLongitude: 23.7269321
+    })).rejects.toBeInstanceOf(Error)
+   })
+
 
 
 
