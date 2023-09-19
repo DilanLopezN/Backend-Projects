@@ -1,4 +1,4 @@
-import { Checkin, Prisma, User } from "@prisma/client";
+import { Checkin, Prisma } from "@prisma/client";
 import { CheckInsRepository } from "../checkins.repository";
 import { randomUUID } from "node:crypto";
 import dayjs from "dayjs";
@@ -40,5 +40,8 @@ export class InMemoryCheckinsRepository implements CheckInsRepository {
     return checkin
   }
 
+  async findManyByUserId(userId: string, page: number){
+    return this.database.filter((checkin) => checkin.user_id === userId).slice((page - 1) * 20, page * 20)
+  }
 
 }

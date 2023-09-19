@@ -3,26 +3,28 @@ import { InMemoryCheckinsRepository } from '@/repositories/in-memory/in-memory.c
 import { CheckinService } from './checkin.service'
 import { InMemorGymsRepository } from '@/repositories/in-memory/in-memory.gyms.repository'
 import { Decimal } from '@prisma/client/runtime/library'
+import { MaxCheckinsError } from '../errors/max.checkins'
+import { MaxDistanceError } from '../errors/max.distance'
 
 let inMemoryCheckinRepository: InMemoryCheckinsRepository
 let inMemoryGymRepository: InMemorGymsRepository
 let sut: CheckinService
 describe('Checkin Service', () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     inMemoryCheckinRepository = new InMemoryCheckinsRepository()
      inMemoryGymRepository = new InMemorGymsRepository()
      sut = new CheckinService( inMemoryCheckinRepository, inMemoryGymRepository)
 
-
-     inMemoryGymRepository.database.push({
+     await inMemoryGymRepository.create({
       id: 'gym-id-01',
       title: 'Js Gym',
       description: 'To learn and growth' ,
       phone: '944502819',
-      latitude: new Decimal(-23.7142825),
-      longitude:  new Decimal(-46.5993207),
-    })
+      latitude: -23.7142825,
+      longitude:  -46.5993207,
+     })
 
+  
      vi.useFakeTimers()
   })
 
@@ -58,7 +60,7 @@ describe('Checkin Service', () => {
       userId: 'user-id-01',
       userLatitude: -23.7141253,
       userLongitude: -46.5992241
-    })).rejects.toBeInstanceOf(Error)
+    })).rejects.toBeInstanceOf(MaxCheckinsError)
 
 
    })
@@ -106,7 +108,7 @@ describe('Checkin Service', () => {
       userId: 'user-id-01',
       userLatitude: 23.7269321,
       userLongitude: 23.7269321
-    })).rejects.toBeInstanceOf(Error)
+    })).rejects.toBeInstanceOf(MaxDistanceError)
    })
 
 

@@ -7,17 +7,18 @@ GymPass API
 - [X] Deve ser possivel se autenticar;
 - [X] Deve ser possivel obter perfil de usuário logado;
 - [] Deve ser possivel obter números de check-ins realizado pelo usuário;
-- [] Deve ser possivel o usuário obter histórico de check-ins;
+- [X] Deve ser possivel o usuário obter histórico de check-ins;
 - [] Deve ser possivel o usuário buscar academias próximas;
 - [] Deve ser possivel o usuário buscar academias pelo nome;
-- [] Deve ser possivel o usuário realizar check-in em uma academia;
+- [x] Deve ser possivel o usuário realizar check-in em uma academia;
 - [] Deve ser possivel validar o check-in de um usuário;
-- [] Deve ser possivel cadastrar uma academia;
+- [x] Deve ser possivel cadastrar uma academia;
 - [] Deve ser possivel
-#RNA (Regras de negócio)
+
+    #RNA (Regras de negócio)
 - [X] Usuário não pode se cadastrar com o mesmo e-mail;
-- [] Usuário não pode fazer dois check-ins no mesmo dia;
-- [] Usuário não pode fazer check-in se estiver mais de 100m da academia;
+- [x] Usuário não pode fazer dois check-ins no mesmo dia;
+- [x] Usuário não pode fazer check-in se estiver mais de 100m da academia;
 - [] O Check-in só pode ser validado até 20 minutos após criado;
 - [] O check-in só pode ser validado por administradores;
 - [] Ocademia só pode ser cadastrado por administradores;
