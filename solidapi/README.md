@@ -9,7 +9,7 @@ GymPass API
 - [X] Deve ser possivel obter números de check-ins realizado pelo usuário;
 - [X] Deve ser possivel o usuário obter histórico de check-ins;
 - [] Deve ser possivel o usuário buscar academias próximas;
-- [] Deve ser possivel o usuário buscar academias pelo nome;
+- [X] Deve ser possivel o usuário buscar academias pelo nome;
 - [x] Deve ser possivel o usuário realizar check-in em uma academia;
 - [] Deve ser possivel validar o check-in de um usuário;
 - [x] Deve ser possivel cadastrar uma academia;

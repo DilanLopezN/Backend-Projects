@@ -1,7 +1,6 @@
-import { describe, it, expect, beforeEach, vi, afterEach} from 'vitest'
+import { describe, it, expect, beforeEach} from 'vitest'
 import { InMemoryCheckinsRepository } from '@/repositories/in-memory/in-memory.checkins.repository'
-import { CheckinService } from './checkin.service'
-import { InMemorGymsRepository } from '@/repositories/in-memory/in-memory.gyms.repository'
+
 
 import { FetchCheckinService } from './fetch.checkin.service'
 
