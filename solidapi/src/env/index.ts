@@ -4,7 +4,8 @@ import z from 'zod'
 // schema de validações para as variavéis de ambiente com Zod
 const envSchema = z.object({
   NODE_ENV: z.enum(['dev', 'test', 'production']).default('dev'),
-  PORT: z.coerce.number().default(3333)
+  PORT: z.coerce.number().default(3333),
+  JWT_SECRET: z.string()
 })
 
 // parse do schema para o process.env

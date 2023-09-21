@@ -17,8 +17,15 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
 
       const authenticateService = makeAuthenticateService()
       
-      await authenticateService.handler({email, password})
-      reply.status(200).send()
+      const {user} = await authenticateService.handler({email, password})
+
+      const token = await reply.jwtSign({}, {
+        sign: {
+          sub: user.id
+        }
+      })
+
+      reply.send({token}).status(200)
 
     } catch (error) {
       if(error instanceof InvalidCredentialsError) {
