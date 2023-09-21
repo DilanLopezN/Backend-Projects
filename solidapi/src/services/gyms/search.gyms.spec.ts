@@ -1,5 +1,4 @@
 import { describe, it, expect, beforeEach} from 'vitest'
-import { InMemoryCheckinsRepository } from '@/repositories/in-memory/in-memory.checkins.repository'
 import { InMemorGymsRepository } from '@/repositories/in-memory/in-memory.gyms.repository'
 import { SearchGymService } from './search.gyms.service'
 
@@ -44,7 +43,7 @@ describe('Search Gyms Service', () => {
    })
 
 
-  it.skip('should be able to fetch check-in history paginated', async () => {
+  it('should be able to fetch check-in history paginated', async () => {
 
     for(let i = 1; i <= 22; i++) {
       await inMemoryGymRepository.create({

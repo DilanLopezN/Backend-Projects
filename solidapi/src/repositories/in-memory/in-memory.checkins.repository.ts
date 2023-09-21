@@ -2,6 +2,7 @@ import { Checkin, Prisma } from "@prisma/client";
 import { CheckInsRepository } from "../checkins.repository";
 import { randomUUID } from "node:crypto";
 import dayjs from "dayjs";
+import { ResourceNotFoundError } from "@/services/errors/resource.not.found";
 
 export class InMemoryCheckinsRepository implements CheckInsRepository {
 
@@ -40,8 +41,29 @@ export class InMemoryCheckinsRepository implements CheckInsRepository {
     return checkin
   }
 
+  async save (checkIn: Checkin) {
+    const checkInIndex =  this.database.findIndex((checkin) => checkin.id === checkin.id);
+
+    if(checkInIndex >= 0) {
+      this.database[checkInIndex] = checkIn;
+    }
+
+    
+    return checkIn
+  }
+
   async findManyByUserId(userId: string, page: number){
     return this.database.filter((checkin) => checkin.user_id === userId).slice((page - 1) * 20, page * 20)
+  }
+
+  async findById(id: string) {
+      const checkin = this.database.find((checkin) => checkin.id === id)
+      if(!checkin) {
+        return null
+      }
+
+      return checkin
+
   }
 
    async countByUserId(userId: string) {
