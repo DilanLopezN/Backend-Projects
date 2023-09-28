@@ -1,7 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify"
 import { z } from "zod"
-import { PrismaUsersRepository } from "@/repositories/prisma/prisma.users.repository"
-import { AuthenticateService } from "@/services/authenticate/authenticate.service"
 import { InvalidCredentialsError } from "@/services/errors/user.invalid.credentials"
 import { makeAuthenticateService } from "@/services/factories/make.authenticate.service"
 
@@ -19,7 +17,7 @@ export async function authenticate(request: FastifyRequest, reply: FastifyReply)
       
       const {user} = await authenticateService.handler({email, password})
 
-      const token = await reply.jwtSign({}, {
+      const token =  reply.jwtSign({}, {
         sign: {
           sub: user.id
         }
