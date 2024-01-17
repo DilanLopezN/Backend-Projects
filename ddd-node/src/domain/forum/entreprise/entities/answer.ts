@@ -3,7 +3,7 @@ import { Entity } from "@/core/entities/entity";
 import { UniqueEntityId } from "@/core/entities/unique-entity-id";
 
 
-interface AnswerProps {
+export interface AnswerProps {
   content: string, 
   authorId: UniqueEntityId, 
   questionId: UniqueEntityId,
