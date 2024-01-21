@@ -1,6 +1,6 @@
 import { expect, test} from 'vitest'
 import { AnswerQuestionUseCase } from './answer-question'
-import { InMemoryAnswersRepository } from '@/test/repositories/in-memory-answers-repository'
+import { InMemoryAnswersRepository } from '@/test/repositories/in-memory-answers-repository-repository'
 
 describe('Create Answer', () => {
 
